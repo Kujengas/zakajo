@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:model="clr-namespace:zakajo.Model;assembly=zakajo.Model"
+             x:Class="zakajo.Mobile.Views.NoteDetailPage"
+             Title="{Binding Text}">
+    <StackLayout Spacing="20" Padding="15" BackgroundColor="#FF292929">
+        <Frame CornerRadius="8" BackgroundColor="DarkOrange">
+                <StackLayout Spacing="3" >
+                    <Label Text="Title:"   FontAttributes="Bold"/>
+                    <Entry Text="{Binding Text, Mode=TwoWay}"   />
+
+                <Label Text="Content:"  FontAttributes="Bold" />
+                    <Editor Text="{Binding Description, Mode=TwoWay}"  AutoSize="TextChanges" Margin="0" />
+               <StackLayout Orientation="Horizontal">
+                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout> 
+          </StackLayout>
+            </Frame>
+            
+            <Frame CornerRadius="8" BackgroundColor="DarkOrange">
+                <StackLayout>
+                <Label  FontAttributes="Bold">Comments:</Label>
+                    <CollectionView x:Name="ItemsListView"  
+                ItemsSource="{Binding CurrentNote.Comments}"
+                SelectionMode="None" >
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                  
+                                        <StackLayout  x:DataType="model:Comment">
+                                            <Label Text="{Binding CommentDate}" 
+                            LineBreakMode="NoWrap"  FontAttributes="Bold"
+                            Style="{DynamicResource ListItemTextStyle}" 
+                            FontSize="16" />
+                                            <Label Text="{Binding CommentText}" 
+                            LineBreakMode="WordWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                            FontSize="13" />
+                                        </StackLayout>
+                                   
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    <StackLayout Orientation="Horizontal">
+                        <Editor Text="{Binding Comment, Mode=TwoWay}"    Placeholder="Comment..."  FontSize="Medium" HorizontalOptions="FillAndExpand" />
+                        <Button Text="Save" Command="{Binding CommentCommand}" ></Button>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+</ContentPage>
