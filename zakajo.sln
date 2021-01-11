@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zakajo.WebApi", "zakajo.WebApi\zakajo.WebApi.csproj", "{ED36DD14-55BC-4F71-B0D8-A3C11D3180D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zakajo.Model", "zakajo.Model\zakajo.Model.csproj", "{9C7851DB-1D84-4E07-8FDE-2E66079A12A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zakajo.Model", "zakajo.Model\zakajo.Model.csproj", "{9C7851DB-1D84-4E07-8FDE-2E66079A12A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zakajo.DataAccess", "zakajo.DataAccess\zakajo.DataAccess.csproj", "{DBFB5167-825A-45DB-B608-35EAF54ED677}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zakajo.DataAccess", "zakajo.DataAccess\zakajo.DataAccess.csproj", "{DBFB5167-825A-45DB-B608-35EAF54ED677}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zakajo.Utilities", "zakajo.Utilities\zakajo.Utilities.csproj", "{36C26FD5-8D9F-465E-82AB-B87AB5389DC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zakajo.Utilities", "zakajo.Utilities\zakajo.Utilities.csproj", "{36C26FD5-8D9F-465E-82AB-B87AB5389DC2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zakajo.Sql", "zakajo.Sql", "{237F343C-92F4-4F01-A932-2A2CA94159CD}"
 	ProjectSection(SolutionItems) = preProject
@@ -24,9 +24,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zakajo.Mobile.Android", "za
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zakajo.Mobile.iOS", "zakajo.Mobile\zakajo.Mobile.iOS\zakajo.Mobile.iOS.csproj", "{7AC6699D-9A80-4074-8491-7FCCF8E75FEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zakajo.Mobile", "zakajo.Mobile\zakajo.Mobile\zakajo.Mobile.csproj", "{884101C8-6DDD-42B3-9E66-E592073638DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zakajo.Mobile", "zakajo.Mobile\zakajo.Mobile\zakajo.Mobile.csproj", "{884101C8-6DDD-42B3-9E66-E592073638DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zakajo.Tests", "zakajo.Tests\zakajo.Tests.csproj", "{D0FEE8F0-E706-40E8-B398-CE397B226177}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "zakajo.Tests", "zakajo.Tests\zakajo.Tests.csproj", "{D0FEE8F0-E706-40E8-B398-CE397B226177}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "screenshots", "screenshots", "{4F903F85-86B3-49DE-A83E-78A2167560D8}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\OneDrive\Desktop\Screenshot_AboutPage.png = ..\..\..\OneDrive\Desktop\Screenshot_AboutPage.png
+		..\..\..\OneDrive\Desktop\Screenshot_Flyout.png = ..\..\..\OneDrive\Desktop\Screenshot_Flyout.png
+		..\..\..\OneDrive\Desktop\Screenshot_NotesDetail.png = ..\..\..\OneDrive\Desktop\Screenshot_NotesDetail.png
+		..\..\..\OneDrive\Desktop\Screenshot_NotesPage.png = ..\..\..\OneDrive\Desktop\Screenshot_NotesPage.png
+		..\..\..\OneDrive\Desktop\zakajo_demo.gif = ..\..\..\OneDrive\Desktop\zakajo_demo.gif
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
