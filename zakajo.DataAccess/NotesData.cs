@@ -15,10 +15,10 @@ namespace zakajo.DataAccess
         {
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
             {
-                DataSource = "",
-                UserID = "",
-                Password = "",
-                InitialCatalog = ""
+                DataSource = "sql5065.site4now.net",
+                UserID = "DB_A4BBBD_zakajo_admin",
+                Password = "xHia1vucuO",
+                InitialCatalog = "DB_A4BBBD_zakajo"
             };
 
             return builder.ConnectionString;

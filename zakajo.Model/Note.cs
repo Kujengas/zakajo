@@ -34,7 +34,7 @@ namespace zakajo.Model
         public string ImageThumb { get; set; }
 
         [JsonProperty("Comments")]
-        public List<Comment> Comments { get; set; }
+        public List<Comment> Comments { get; set; } = new List<Comment>();
 
         [JsonProperty("Links")]
         public List<Link> Links { get; set; }

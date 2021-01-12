@@ -16,13 +16,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid BackgroundColor="{StaticResource BackgroundColor}"  RowSpacing="20" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <Grid BackgroundColor="{StaticResource BackgroundColor}"  Padding="30,50,30,50" >
+       
   
-        <Frame Grid.Row="1" CornerRadius="8"  BackgroundColor="{StaticResource Accent}"   Padding="30,24,30,24">
+        <Frame CornerRadius="8"  BackgroundColor="{StaticResource Accent}"   Padding="30,24,30,24">
 
             <StackLayout Orientation="Vertical"  >
                 <ContentView Padding="0,20,0,20" >

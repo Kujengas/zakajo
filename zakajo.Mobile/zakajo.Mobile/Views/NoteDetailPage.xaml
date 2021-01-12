@@ -22,31 +22,30 @@
             <Frame CornerRadius="8" BackgroundColor="DarkOrange">
                 <StackLayout>
                 <Label  FontAttributes="Bold">Comments:</Label>
-                    <CollectionView x:Name="ItemsListView"  
-                ItemsSource="{Binding CurrentNote.Comments}"
+                    <CollectionView x:Name="CommentsListView"  
+                ItemsSource="{Binding Comments, Mode=OneWay}" 
                 SelectionMode="None" >
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Grid Padding="10">
-                                  
-                                        <StackLayout  x:DataType="model:Comment">
-                                            <Label Text="{Binding CommentDate}" 
+                            <Grid Padding="10">
+                                <StackLayout  x:DataType="model:Comment">
+                                    <Label Text="{Binding CommentDate}" 
                             LineBreakMode="NoWrap"  FontAttributes="Bold"
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
-                                            <Label Text="{Binding CommentText}" 
+                                    <Label Text="{Binding CommentText}" 
                             LineBreakMode="WordWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-                                        </StackLayout>
-                                   
-                                </Grid>
+                                </StackLayout>
+                            </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                     <StackLayout Orientation="Horizontal">
-                        <Editor Text="{Binding Comment, Mode=TwoWay}"    Placeholder="Comment..."  FontSize="Medium" HorizontalOptions="FillAndExpand" />
-                        <Button Text="Save" Command="{Binding CommentCommand}" ></Button>
+                        <Editor Text="{Binding Comment, Mode=TwoWay}" 
+                                Placeholder="Comment..."  FontSize="Medium" HorizontalOptions="FillAndExpand" />
+                    <Button ImageSource="icon_add_comment.png" BackgroundColor="{StaticResource Primary}"  Command="{Binding CommentCommand}" ></Button>
                     </StackLayout>
                 </StackLayout>
             </Frame>

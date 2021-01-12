@@ -2,8 +2,8 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:zakajo.Mobile.Views"
-       Title="zakajo.Mobile"
-       x:Class="zakajo.Mobile.AppShell" BackgroundColor="{StaticResource BackgroundColor}">
+       Title="Zakajo Notes"
+       x:Class="zakajo.Mobile.AppShell"  FlyoutBackgroundColor="{StaticResource BackgroundColor}" BackgroundColor="{StaticResource BackgroundColor}">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -19,18 +19,17 @@
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Accent}" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource BackgroundColor}"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
-                <Setter Property="Shell.FlyoutBackgroundColor" Value="{StaticResource BackgroundColor}"/>
-                
+
             </Style>
-          <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
-          <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
 
             <!--
             Default Styles for all Flyout Items
@@ -40,7 +39,7 @@
                 <Setter Property="TextColor" Value="White"></Setter>
             </Style>
             <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
-           
+
                 <Setter Property="BackgroundColor" Value="LightBlue"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
@@ -85,41 +84,42 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-   
-  <!-- <FlyoutItem Title="All Notes" Icon="icon_feed.png" >
+    <Shell.FlyoutHeader>
+        <Image Aspect="AspectFill" Source="zakajo_flyout_background.png"/>
+    </Shell.FlyoutHeader>
+    <!-- <FlyoutItem Title="All Notes" Icon="icon_feed.png" >
         <ShellContent Route="NotesPage" ContentTemplate="{DataTemplate local:NotesPage}"  />
     </FlyoutItem>
     <FlyoutItem Title="All Notes" Icon="icon_feed.png" >
         <ShellContent Route="NotesPage?NoteTypeId=2" ContentTemplate="{DataTemplate local:NotesPage}"  />
     </FlyoutItem>-->
 
-  <!--   <FlyoutItem Title="Zakajo Notes" Icon="icon_feed.png.png">
+    <!--   <FlyoutItem Title="Zakajo Notes" Icon="icon_feed.png.png">
         <ShellContent Route="NotesPage" ContentTemplate="{DataTemplate local:NotesPage}" />
     </FlyoutItem>-->
 
-  
-    <FlyoutItem Title="Zakajo Notes" >
-        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+
+    <FlyoutItem Title="Zakajo Notes"  IsVisible="False">
+        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}"    />
     </FlyoutItem>
 
-    <MenuItem Text="Journal" StyleClass="MenuItemLayoutStyle"   IconImageSource="icon_feed.png" CommandParameter="1"  Clicked="OnCategoryClicked" >
-
-            </MenuItem>
-   
-            <MenuItem Text="Dream Journal" StyleClass="MenuItemLayoutStyle"   IconImageSource="icon_feed.png" CommandParameter="2"  Clicked="OnCategoryClicked">
+    <MenuItem Text="Journal" StyleClass="MenuItemLayoutStyle"   IconImageSource="icon_notes.png" CommandParameter="1"  Clicked="OnCategoryClicked" >
     </MenuItem>
 
-            <MenuItem Text="General Notes" StyleClass="MenuItemLayoutStyle"   IconImageSource="icon_feed.png" CommandParameter="3"  Clicked="OnCategoryClicked">
+    <MenuItem Text="Dream Journal" StyleClass="MenuItemLayoutStyle"   IconImageSource="icon_notes.png" CommandParameter="2"  Clicked="OnCategoryClicked">
     </MenuItem>
 
-            <MenuItem Text="Project Ideas" StyleClass="MenuItemLayoutStyle"   IconImageSource="icon_feed.png" CommandParameter="4"  Clicked="OnCategoryClicked">
+    <MenuItem Text="General Notes" StyleClass="MenuItemLayoutStyle"   IconImageSource="icon_notes.png" CommandParameter="3"  Clicked="OnCategoryClicked">
     </MenuItem>
-  
-            <MenuItem Text="About Zakajo Notes" StyleClass="MenuItemLayoutStyle"   IconImageSource="icon_about.png"  Clicked="OnMenuItemClicked">
-        </MenuItem>
-    
-    
-   
+
+    <MenuItem Text="Project Ideas" StyleClass="MenuItemLayoutStyle"   IconImageSource="icon_notes.png" CommandParameter="4"  Clicked="OnCategoryClicked">
+    </MenuItem>
+
+    <MenuItem Text="About Zakajo Notes" StyleClass="MenuItemLayoutStyle"   IconImageSource="icon_info.png"  Clicked="OnMenuItemClicked">
+    </MenuItem>
+
+
+
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  
     <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
     </MenuItem>

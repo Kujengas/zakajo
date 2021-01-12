@@ -28,6 +28,7 @@ namespace zakajo.Mobile.Views
                     
             BindingContext = _viewModel = new NotesViewModel();
 
+
         }
 
         protected override void OnAppearing()

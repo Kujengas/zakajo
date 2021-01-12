@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using zakajo.Mobile.Models;
 using zakajo.Mobile.Services;
 using zakajo.Model;
+using System.Collections.Generic;
 
 namespace zakajo.Mobile.ViewModels
 {
@@ -17,18 +18,20 @@ namespace zakajo.Mobile.ViewModels
         private string text;
         private string description;
         private string comment;
-        
-        public Note CurrentNote { get; set; }
+        private IEnumerable<Comment> comments;
+
+        public Note CurrentNote { get; set; } = new Note();
+
 
         public int Id { get; set; }
-       
+
         public NoteDetailViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
             this.PropertyChanged +=
-                (_, __) => SaveCommand.ChangeCanExecute(); 
-            
+                (_, __) => SaveCommand.ChangeCanExecute();
+
             CommentCommand = new Command(OnComment, ValidateComment);
             this.PropertyChanged +=
                (_, __) => CommentCommand.ChangeCanExecute();
@@ -64,7 +67,11 @@ namespace zakajo.Mobile.ViewModels
             set => SetProperty(ref comment, value);
         }
 
-      
+        public IEnumerable<Comment> Comments
+        {
+            get => comments;
+            set => SetProperty(ref comments, value);
+        }
 
         public string NoteId
         {
@@ -91,10 +98,11 @@ namespace zakajo.Mobile.ViewModels
                 Id = CurrentNote.Id;
                 Text = CurrentNote.Title;
                 Description = CurrentNote.Content;
-
+                Comments = CurrentNote.Comments;
                 Shell.Current.Title = Text;
 
                 OnPropertyChanged("CurrentNote");
+              
             }
             catch (Exception)
             {
@@ -123,13 +131,11 @@ namespace zakajo.Mobile.ViewModels
 
         private async void OnComment()
         {
-            CurrentNote.Comments.Clear();
-            CurrentNote.Comments.AddRange(await WebDataService.AddComment(new Comment { CommentText = comment, NoteId = CurrentNote.Id, UpdateUserGuid = CurrentNote.UpdateUserGuid, CommentType = 1 }));
-            OnPropertyChanged("CurrentNote.Comments");
+        
+            Comments = await WebDataService.AddComment(new Comment { CommentText = comment, NoteId = CurrentNote.Id, UpdateUserGuid = CurrentNote.UpdateUserGuid, CommentType = 1 }); 
             LoadNoteId(noteId);
             Comment = string.Empty;
-            // This will pop the current page off the navigation stack
-            // await Shell.Current.GoToAsync("..");
+  
         }
     }
 }

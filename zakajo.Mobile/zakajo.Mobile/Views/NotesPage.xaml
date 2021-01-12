@@ -5,10 +5,10 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:zakajo.Mobile.ViewModels"  
              xmlns:model="clr-namespace:zakajo.Model;assembly=zakajo.Model"  
-             BackgroundColor="#FF292929" >
+             BackgroundColor="#FF292929">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddNoteCommand}" />
+        <ToolbarItem  Command="{Binding AddNoteCommand}" IconImageSource="icon_add_post.png" />
     </ContentPage.ToolbarItems>
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.

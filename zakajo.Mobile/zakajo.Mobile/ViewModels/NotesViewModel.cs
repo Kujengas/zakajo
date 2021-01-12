@@ -43,8 +43,6 @@ namespace zakajo.Mobile.ViewModels
             NoteTypeId = shell.SelectedNoteType;
             Title = shell.SelectedNoteTypeTitle;
 
-            Shell.Current.Title = Title;
-
 
             try
             {
